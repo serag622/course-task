@@ -1,0 +1,40 @@
+<div
+  class="card w-[298px] border-2 border-[#3B82F61F] shadow-sm rounded-lg p-3 cursor-pointer"
+  (click)="showDetails()"
+>
+  <div class="card_header mb-3">
+    <img [src]="course().image" class="rounded-lg h-[170px] w-full" />
+  </div>
+  <div class="flex justify-between items-center">
+    <p class="font-bold">$ {{ course().price }}</p>
+    <p
+      class="px-3 py-1 text-white rounded-full"
+      [ngClass]="{
+        'bg-[#00B8FF]': course().category === 'Development',
+        'bg-[#FD6F00]': course().category !== 'Development'
+      }"
+    >
+      {{ course().category }}
+    </p>
+  </div>
+  <div class="card_body mt-3">
+    <p class="text-[#0f172a] text-lg font-bold">{{ course().title }}</p>
+    <p class="text-base text-[#334155]">By {{ course().author }}</p>
+    <div class="flex items-center gap-1">
+      <span class="text-[#EAB308] text-[200%]">★</span>
+      <span class="text-[#EAB308] text-[200%]">★</span>
+      <span class="text-[#EAB308] text-[200%]">★</span>
+      <span class="text-[#EAB308] text-[200%]">★</span>
+      <span class="text-[#EAB308] text-[200%]">★</span>
+      <span class="text-[#334155] ms-1"
+        >({{ course().ratingCount }} Ratings)</span
+      >
+    </div>
+  </div>
+  <div class="card-footer">
+    <p class="text-base text-[#334155]">
+      {{ course().hours }} Total Hours. {{ course().lectures }} Lectures.
+      Beginner
+    </p>
+  </div>
+</div>

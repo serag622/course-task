@@ -1,0 +1,16 @@
+<div class="w-100 flex justify-center items-center gap-3 my-2">
+  <img src="assets/images/search-icon.svg" />
+  <input
+    type="search"
+    [(ngModel)]="searchValue"
+    placeholder="Course name"
+    (search)="handelSearchEvent($event)"
+    class="input border-0 border-b-2 w-[85%] py-2 focus:outline-0"
+  />
+  <button
+    class="bg-[#FD6F00] rounded-md text-white px-3 py-2"
+    (click)="search()"
+  >
+    Search
+  </button>
+</div>

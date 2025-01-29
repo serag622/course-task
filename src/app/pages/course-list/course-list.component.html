@@ -1,0 +1,30 @@
+<app-page-header
+  [title]="'Courses'"
+  [subtitle]="'Home / Courses'"
+></app-page-header>
+<div class="section-container py-5">
+  <div class="text-center">
+    <p class="text-[#FD6F00] text-xl">\ Courses \</p>
+    <h4 class="text-4xl font-semibold text-[#0E1F51]">Our Courses</h4>
+  </div>
+  <app-search-input (onSearch)="search($event)"></app-search-input>
+
+  @if (this.filiteredList().length && !this.isLoading()) {
+  <div
+    class="flex flex-row flex-wrap gap-x-4 gap-y-8 items-center justify-center my-8"
+  >
+    @for (item of this.filiteredList(); track item.id) {
+    <app-course-card [course]="item"></app-course-card>
+    }
+  </div>
+  } @else if (!this.filiteredList().length && !this.isLoading()) {
+  <div class="flex flex-col justify-center items-center py-20">
+    <img src="assets/images/search-icon.svg" class="mb-5" width="50px" />
+    <h6 class="text-2xl text-[#0E1F51]">There is no results</h6>
+  </div>
+  }@else {
+  <div class="flex justify-center my-8">
+    <app-loader></app-loader>
+  </div>
+  }
+</div>

@@ -4,7 +4,7 @@ export const mainRoutes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('../pages/main/home/home.component').then((c) => c.HomeComponent),
+      import('../pages/home/home.component').then((c) => c.HomeComponent),
   },
   {
     path : '',
@@ -14,11 +14,11 @@ export const mainRoutes: Routes = [
   {
     path: 'course-list',
     loadComponent: () =>
-      import('../pages/main/course-list/course-list.component').then((c) => c.CourseListComponent),
+      import('../pages/course-list/course-list.component').then((c) => c.CourseListComponent),
   },
   {
     path: 'course-details',
     loadComponent: () =>
-      import('../pages/main/course-details/course-details.component').then((c) => c.CourseDetailsComponent),
+      import('../pages/course-details/course-details.component').then((c) => c.CourseDetailsComponent),
   },
 ];
