@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: unset;
+}
+
+.section-container {
+  padding-inline: 6rem;
+  margin-inline: auto;
+  @media screen and (min-width: 1920px) {
+    max-width: 1750px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .section-container {
+    margin-inline: auto;
+    padding-inline: 3rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section-container {
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .section-container {
+    padding-inline: 1.2rem;
+    margin-inline: auto;
+  }
+}

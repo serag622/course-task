@@ -1,0 +1,94 @@
+<nav class="section-container navbar py-5 bg-white">
+  <div class="flex items-center justify-between">
+    <div class="logo">
+      <a routerLink="/" class="cursor-pointer">
+        <img src="assets/images/logo.svg"
+      /></a>
+    </div>
+    <div class="navbar-links">
+      <ul class="md:flex hidden list-none gap-8 text-[#0E1F51]">
+        <li class="link cursor-pointer">
+          <a class="decoration-0" routerLink="/"> About </a>
+        </li>
+        <li class="link cursor-pointer">
+          <a
+            class="decoration-0"
+            routerLink="/course-list"
+            routerLinkActive="text-[#FD6F00]"
+          >
+            Our Courses
+          </a>
+        </li>
+        <li class="link cursor-pointer">
+          <a class="decoration-0" routerLink="/"> Portfolio </a>
+        </li>
+        <li class="link cursor-pointer">
+          <a class="decoration-0" routerLink="/"> Blog </a>
+        </li>
+        <li class="link cursor-pointer">
+          <a class="decoration-0" routerLink="/"> Contact </a>
+        </li>
+        <li class="link cursor-pointer ms-4">
+          <a class="px-2 py-3 bg-[#FD6F00] text-white rounded-md">
+            Get In Touch
+          </a>
+        </li>
+      </ul>
+
+      <button class="md:hidden" (click)="openSidenav()">
+        <img src="assets/images/nav-icon.svg" />
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div
+  class="h-full w-0 fixed z-[100] top-0 right-0 overflow-hidden transition duration-500 bg-white shadow-md"
+  id="side_nav"
+>
+  <div class="px-3 py-8">
+    <diV class="flex justify-end py-2">
+      <button class="flex items-center space-x-3" (click)="closeSidenav()">
+        <img src="assets/images/x.png" />
+      </button>
+    </diV>
+
+    <div class="mt-4 flex flex-col gap-6 justify-center items-center">
+      <div class="cursor-pointer">
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          About
+        </a>
+      </div>
+      <div class="link cursor-pointer">
+        <a
+          class="decoration-0"
+          routerLink="/course-list"
+          routerLinkActive="text-[#FD6F00]"
+          (click)="closeSidenav()"
+        >
+          Our Courses
+        </a>
+      </div>
+      <div class="link cursor-pointer">
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          Portfolio
+        </a>
+      </div>
+      <div class="link cursor-pointer">
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          Blog
+        </a>
+      </div>
+      <div class="link cursor-pointer">
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          Contact
+        </a>
+      </div>
+      <div class="link cursor-pointer mt-4">
+        <a class="px-2 py-3 bg-[#FD6F00] text-white rounded-md">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
