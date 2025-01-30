@@ -1,0 +1,61 @@
+<h5 class="mt-4 text-lg text-[#5B5B5B] text-center">
+  Want to join us as student!
+</h5>
+<div [formGroup]="studentForm" class="p-4">
+  <input
+    type="text"
+    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+    formControlName="name"
+    placeholder="Name *"
+    required
+  />
+
+  <input
+    type="email"
+    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+    formControlName="email"
+    placeholder="Email *"
+    required
+  />
+
+  <input
+    type="text"
+    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+    formControlName="phone"
+    placeholder="Mobile *"
+    required
+  />
+
+  <input
+    type="text"
+    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+    formControlName="college"
+    placeholder="College *"
+    required
+  />
+
+  <p class="my-3 text-lg text-[#5B5B5B]">Course Details:</p>
+  <div class="grid grid-cols-1">
+    <select
+      class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+      formControlName="courseCategory"
+      placeholder="Course Category"
+      required
+    >
+      @for (item of courseCategoryList(); track $index) {
+      <option [value]="item.id">
+        {{ item.name }}
+      </option>
+      }
+    </select>
+  </div>
+
+  <div class="flex justify-center">
+    <button
+      (click)="submit()"
+      class="rounded-full px-24 text-xl font-semibold py-4 text-white bg-[#00B8FF]"
+    >
+      Submit
+    </button>
+  </div>
+</div>

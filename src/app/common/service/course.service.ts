@@ -18,7 +18,9 @@ export class CourseService {
     );
   }
 
-  getCourseCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.baseUrl}8378472d08789a9cb165`);
+  getCourseCategory(): Observable<{ Categories: Category[] }> {
+    return this.http.get<{ Categories: Category[] }>(
+      `${this.baseUrl}8378472d08789a9cb165`
+    );
   }
 }

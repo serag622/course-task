@@ -1,1 +1,47 @@
-<p>banner works!</p>
+<div class="section-container py-10">
+  <div class="banner md:flex gap-3">
+    <div class="flex flex-col my-4">
+      <div>
+        <div
+          class="md:text-5xl text-3xl text-[#101828] banner_title"
+          [innerHTML]="currentBanner.title"
+        ></div>
+        <p class="mt-6 md:text-2xl text-xl text-[#777E90] lg:w-[80%]">
+          {{ currentBanner.brief }}
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <a
+          class="px-4 py-3 text-white text-base rounded-lg cursor-pointer"
+          [style.background]="'#' + currentBanner.colorCode"
+        >
+          Get Started
+        </a>
+      </div>
+    </div>
+    <div
+      class="md:py-12 md:px-16 py-24 my-8 rounded-full flex justify-center items-center"
+      [style.background]="'#' + currentBanner.colorCode"
+    >
+      <img
+        [src]="currentBanner.image"
+        class="max-h-[350px] md:h-[300px] h-[220px] md:w-[320px] w-[240px]"
+      />
+    </div>
+  </div>
+
+  <div class="color-btns flex gap-4 md:justify-start justify-center">
+    @for (item of colorsList; track $index) {
+    <span
+      class="p-3 rounded-full cursor-pointer border-2"
+      [ngClass]="{
+        'border-gray-400': item.order === currentOrder,
+        'border-transparent': item.order !== currentOrder
+      }"
+      [style.background]="'#' + item.color"
+      (click)="selectBanner(item.order)"
+    ></span>
+    }
+  </div>
+</div>

@@ -2,7 +2,6 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { PageHeaderComponent } from '../../common/components/page-header/page-header.component';
 import { CourseService } from '../../common/service/course.service';
 import { Course } from '../../common/model/course.model';
-import { Router } from '@angular/router';
 import { CourseCardComponent } from '../../common/components/course-card/course-card.component';
 import { SearchInputComponent } from '../../common/components/search-input/search-input.component';
 import { LoaderComponent } from "../../common/components/loader/loader.component";
@@ -15,7 +14,6 @@ import { LoaderComponent } from "../../common/components/loader/loader.component
 })
 export class CourseListComponent implements OnInit {
   courseService = inject(CourseService);
-  router = inject(Router);
   isLoading = signal<boolean>(false);
   courseList = signal<Course[]>([]);
   filiteredList = signal<Course[]>([]);

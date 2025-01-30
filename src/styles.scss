@@ -11,6 +11,10 @@
 
 .section-container {
   padding-inline: 6rem;
+  margin-inline: auto;
+  @media screen and (min-width: 1920px) {
+    max-width: 1750px;
+  }
 }
 
 @media screen and (max-width: 1000px) {

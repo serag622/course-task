@@ -1,12 +1,59 @@
 <!---------- banner --------->
-<div class="">
+<app-banner [bannerItems]="bannerList()"></app-banner>
 
-</div>
+<!----------- join us -------->
+<app-join-us [courseCategoryList]="courseCategoryList()"></app-join-us>
 
-<div>
+<!------------ course list ------------>
+<div class="section-container py-10 bg-white">
+  <div class="text-center">
+    <p class="text-[#FD6F00] text-xl">\ Courses \</p>
+    <h4 class="text-4xl font-semibold text-[#0E1F51]">Our Latest Courses</h4>
+  </div>
 
-</div>
+  <div class="my-4">
+    <div class="flex justify-center items-center gap-4">
+      @for (item of courseCategoryList(); track $index) {
+      <label
+        class="px-8 py-3 text-center rounded-xl text-lg text-white cursor-pointer font-semibold"
+        [ngClass]="{
+          'bg-[#00B8FF]': item.id === selectedCategory,
+          'bg-[#808080]': item.id !== selectedCategory
+        }"
+      >
+        {{ item.name }}
+        <input
+          type="radio"
+          name="type"
+          class="invisible"
+          [value]="item.id"
+          [(ngModel)]="selectedCategory"
+        />
+      </label>
+      }
+    </div>
+  </div>
 
-<div>
-    
+  @if (this.filiteredList().length && !this.isLoading()) {
+  <div
+    class="flex flex-row flex-wrap gap-x-4 gap-y-8 items-center justify-center my-8"
+  >
+    @for (item of this.filiteredList(); track item.id) {
+    <app-course-card [course]="item"></app-course-card>
+    }
+  </div>
+  } @else {
+  <div class="flex justify-center my-8 py-8">
+    <app-loader></app-loader>
+  </div>
+  }
+
+  <div class="flex justify-center">
+    <a
+      routerLink="/course-list"
+      class="px-4 py-3 rounded-lg bg-[#FD6F00] text-white"
+    >
+      Browse All Courses
+    </a>
+  </div>
 </div>

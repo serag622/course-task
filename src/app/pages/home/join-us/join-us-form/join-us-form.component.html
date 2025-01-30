@@ -1,0 +1,27 @@
+<div class="rounded-xl bg-white p-4">
+  <div class="rounded-full p-4 bg-[#0E1F51] flex gap-4 justify-center">
+    @for(item of joinUsFormTypes | keyvalue; track $index) {
+    <label
+      class="px-12 py-3 text-center rounded-full text-lg cursor-pointer font-semibold"
+      [ngClass]="{
+        'bg-white text-[#0E1F51]': item.value === formType,
+        'text-white': item.value !== formType
+      }"
+    >
+      {{ item.key }}
+      <input
+        type="radio"
+        name="type"
+        class="invisible"
+        [value]="item.value"
+        [(ngModel)]="formType"
+      />
+    </label>
+    }
+  </div>
+  @if (formType === joinUsFormTypes.Instructor) {
+    <app-instructor-form></app-instructor-form>
+  } @else if (formType === joinUsFormTypes.Student) {
+     <app-student-form [courseCategoryList]="courseCategoryList()"></app-student-form>
+  }
+</div>
