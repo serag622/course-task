@@ -11,8 +11,8 @@
     <h4 class="text-4xl font-semibold text-[#0E1F51]">Our Latest Courses</h4>
   </div>
 
-  <div class="my-4">
-    <div class="flex justify-center items-center gap-4">
+  <div class="my-4 md:block hidden">
+    <div class="flex flex-wrap justify-center items-center gap-4">
       @for (item of courseCategoryList(); track $index) {
       <label
         class="px-8 py-3 text-center rounded-xl text-lg text-white cursor-pointer font-semibold"
@@ -25,9 +25,10 @@
         <input
           type="radio"
           name="type"
-          class="invisible"
+          class="hidden"
           [value]="item.id"
           [(ngModel)]="selectedCategory"
+          (ngModelChange)="changeCategory($event)"
         />
       </label>
       }

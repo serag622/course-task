@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { InputComponent } from '../../../../../common/components/input/input.component';
 
 @Component({
   selector: 'app-instructor-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, InputComponent],
   templateUrl: './instructor-form.component.html',
   styleUrl: './instructor-form.component.scss',
 })
@@ -24,6 +25,13 @@ export class InstructorFormComponent {
     if (this.instructorForm.valid) {
       this.isInstructorFormSubmited.set(true);
     } else {
+      Object.values(this.instructorForm.controls).forEach((control) => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.markAsTouched()
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
     }
   }
 }

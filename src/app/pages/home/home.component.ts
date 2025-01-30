@@ -63,4 +63,8 @@ export class HomeComponent implements OnInit {
       this.courseCategoryList.set(res.Categories);
     });
   }
+
+  changeCategory($event : string){
+
+  }
 }

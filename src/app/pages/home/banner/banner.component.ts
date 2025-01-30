@@ -34,7 +34,7 @@ export class BannerComponent implements OnChanges {
         (b) => b.order === this.currentOrder
       )[0];
       this.getColorsList();
-      this.setBannerInterval()
+      // this.setBannerInterval()
     }
   }
 

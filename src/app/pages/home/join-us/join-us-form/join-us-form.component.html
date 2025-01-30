@@ -2,7 +2,7 @@
   <div class="rounded-full p-4 bg-[#0E1F51] flex gap-4 justify-center">
     @for(item of joinUsFormTypes | keyvalue; track $index) {
     <label
-      class="px-12 py-3 text-center rounded-full text-lg cursor-pointer font-semibold"
+      class="md:px-12 px-8 py-3 text-center rounded-full text-lg cursor-pointer font-semibold"
       [ngClass]="{
         'bg-white text-[#0E1F51]': item.value === formType,
         'text-white': item.value !== formType
@@ -12,7 +12,7 @@
       <input
         type="radio"
         name="type"
-        class="invisible"
+        class="hidden"
         [value]="item.value"
         [(ngModel)]="formType"
       />

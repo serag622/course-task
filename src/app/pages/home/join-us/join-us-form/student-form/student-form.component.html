@@ -1,45 +1,47 @@
+@if (!isStudentFormSubmited()) {
 <h5 class="mt-4 text-lg text-[#5B5B5B] text-center">
   Want to join us as student!
 </h5>
 <div [formGroup]="studentForm" class="p-4">
-  <input
-    type="text"
-    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
-    formControlName="name"
-    placeholder="Name *"
-    required
-  />
+  <app-input
+    [formGroup]="studentForm"
+    [inputFormControlName]="'name'"
+    [placeholder]="'Name *'"
+    [required]="true"
+  ></app-input>
 
-  <input
-    type="email"
-    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
-    formControlName="email"
-    placeholder="Email *"
-    required
-  />
+  <app-input
+    [formGroup]="studentForm"
+    [inputFormControlName]="'email'"
+    [placeholder]="'Email *'"
+    [inputType]="'email'"
+    [required]="true"
+  ></app-input>
 
-  <input
-    type="text"
-    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
-    formControlName="phone"
-    placeholder="Mobile *"
-    required
-  />
+  <app-input
+    [formGroup]="studentForm"
+    [inputFormControlName]="'phone'"
+    [placeholder]="'Mobile *'"
+    [required]="true"
+  ></app-input>
 
-  <input
-    type="text"
-    class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
-    formControlName="college"
-    placeholder="College *"
-    required
-  />
+  <app-input
+    [formGroup]="studentForm"
+    [inputFormControlName]="'college'"
+    [placeholder]="'College *'"
+    [required]="true"
+  ></app-input>
 
   <p class="my-3 text-lg text-[#5B5B5B]">Course Details:</p>
-  <div class="grid grid-cols-1">
+  <div class="grid grid-cols-1 mb-4">
     <select
-      class="p-3 w-full border-2 mb-4 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+      class="p-3 w-full border-2 mb-2 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
       formControlName="courseCategory"
       placeholder="Course Category"
+      [ngClass]="{
+        'border-red-400 focus:outline-red-500':
+          controlName().invalid && controlName().dirty && controlName().touched
+      }"
       required
     >
       @for (item of courseCategoryList(); track $index) {
@@ -48,6 +50,12 @@
       </option>
       }
     </select>
+    @if (controlName().invalid && controlName().dirty && controlName().touched)
+    {
+    <p class="text-red-400 text-base mt-2">
+      Please select valid course category
+    </p>
+    }
   </div>
 
   <div class="flex justify-center">
@@ -59,3 +67,21 @@
     </button>
   </div>
 </div>
+} @else {
+<div class="flex flex-col items-center text-center py-4">
+  <img src="assets/images/success-icon.svg" />
+  <h2 class="my-8 text-3xl text-[#1A0710D9]">
+    You are successfully registered!
+  </h2>
+</div>
+<div class="text-xl text-[#1A0710D9] flex flex-col gap-4">
+  <p>Name : {{ studentForm.get("name")?.value }}</p>
+  <p>Email : {{ studentForm.get("email")?.value }}</p>
+  <p>Mobile : {{ studentForm.get("phone")?.value }}</p>
+  <p>College : {{ studentForm.get("college")?.value }}</p>
+  <div>
+    <p class="mb-4 font-semibold">Course Details :</p>
+    <p>Country : {{ studentForm.get("courseCategory")?.value }}</p>
+  </div>
+</div>
+}

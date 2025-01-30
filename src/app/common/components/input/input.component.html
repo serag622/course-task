@@ -1,0 +1,21 @@
+<div class="w-full mb-4" [formGroup]="formGroup()">
+  @if (lable()) {
+  <label>{{ lable() }}</label>
+  }
+  <input
+    [type]="inputType()"
+    class="p-3 w-full border-2 border-[#DDDDDD] focus:outline-[#cacace] rounded-xl box-border"
+    [ngClass]="{
+      'border-red-400 focus:outline-red-500':
+        controlName().invalid && controlName().dirty && controlName().touched
+    }"
+    [formControlName]="inputFormControlName()"
+    [placeholder]="placeholder()"
+    [required]="required()"
+  />
+  @if (controlName().invalid && controlName().dirty && controlName().touched) {
+    <p class="text-red-400 text-base mt-2">
+      Please enter valid {{placeholder()}}
+    </p>
+  }
+</div>
