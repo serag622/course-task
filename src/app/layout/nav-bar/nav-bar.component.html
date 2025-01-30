@@ -55,25 +55,34 @@
 
     <div class="mt-4 flex flex-col gap-6 justify-center items-center">
       <div class="cursor-pointer">
-        <a class="decoration-0" routerLink="/"> About </a>
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          About
+        </a>
       </div>
       <div class="link cursor-pointer">
         <a
           class="decoration-0"
           routerLink="/course-list"
           routerLinkActive="text-[#FD6F00]"
+          (click)="closeSidenav()"
         >
           Our Courses
         </a>
       </div>
       <div class="link cursor-pointer">
-        <a class="decoration-0" routerLink="/"> Portfolio </a>
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          Portfolio
+        </a>
       </div>
       <div class="link cursor-pointer">
-        <a class="decoration-0" routerLink="/"> Blog </a>
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          Blog
+        </a>
       </div>
       <div class="link cursor-pointer">
-        <a class="decoration-0" routerLink="/"> Contact </a>
+        <a class="decoration-0" routerLink="/" (click)="closeSidenav()">
+          Contact
+        </a>
       </div>
       <div class="link cursor-pointer mt-4">
         <a class="px-2 py-3 bg-[#FD6F00] text-white rounded-md">

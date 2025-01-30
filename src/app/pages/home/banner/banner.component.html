@@ -21,13 +21,21 @@
       </div>
     </div>
     <div
-      class="md:py-12 md:px-16 py-24 my-8 rounded-full flex justify-center items-center"
+      class="my-8 md:py-12 md:px-16 py-16 px-0 rounded-full flex justify-center items-center relative"
       [style.background]="'#' + currentBanner.colorCode"
     >
       <img
         [src]="currentBanner.image"
-        class="max-h-[350px] md:h-[300px] h-[220px] md:w-[320px] w-[240px]"
+        class="object-contain md:w-96 w-52 z-20"
       />
+      <div
+        class="absolute top-[-25px] right-24 z-[-2] p-40 border-2 rounded-full lg:block hidden"
+        [style.border-color]="'#' + currentBanner.colorCode"
+      ></div>
+      <div
+      class="absolute top-[-20px] right-40 z-[-2] p-60 border-2 rounded-full lg:block hidden"
+      [style.border-color]="'#' + currentBanner.colorCode"
+    ></div>
     </div>
   </div>
 
